@@ -76,10 +76,10 @@ app.use(( req: Request, res: Response ) => {
 app.use(errorHandler);
 
 const server = app.listen(PORT, () => {
-    logger.info(`Server running on port ${PORT}`);
-    logger.info(`Environment: ${process.env.NODE_ENV}`);
-    logger.info(`Server URL: http:/localhost:${PORT}`);
-    logger.info(`Health Check: http:/localhost:${PORT}/health`);
+    console.log(`Server running on port ${PORT}`);
+    console.log(`Environment: ${process.env.NODE_ENV}`);
+    console.log(`Server URL: http:/localhost:${PORT}`);
+    console.log(`Health Check: http:/localhost:${PORT}/health`);
 });
 
 process.on('SIGTERM', () => {

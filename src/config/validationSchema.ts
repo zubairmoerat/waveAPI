@@ -7,9 +7,9 @@ export const signupSchema = Joi.object({
     password: Joi.string().min(8).required(),
     phone_number: Joi.string().required(),
     role: Joi.string().required(),
-});
+}).unknown(false);
 
 export const loginSchema = Joi.object({
-    email: Joi.string().email().required(),
+    email_address: Joi.string().email().required(),
     password: Joi.string().required()
-});
+}).unknown(false);
