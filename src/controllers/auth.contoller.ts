@@ -4,8 +4,14 @@ import logger from "#utils/logger.js";
 
 export const signUp = async (req: Request, res: Response, next: NextFunction) => {
     try{
-        const { data } = req.body;
-        const result = await signUpUser(data);
+        const { name, email_address, password, phone_number, role } = req.body;
+        const result = await signUpUser({
+            name,
+            email_address,
+            password,
+            phone_number,
+            role
+        });
         res.status(201).json({
             status: res.statusCode,
             user: result,
@@ -19,8 +25,8 @@ export const signUp = async (req: Request, res: Response, next: NextFunction) =>
 
 export const LogIn = async (req: Request, res: Response, next: NextFunction) => {
     try{
-        const { email, password } = req.body;
-        const result = await loginUser(email, password);
+        const { email_address, password } = req.body;
+        const result = await loginUser(email_address, password);
         res.status(200).json({
             staus: res.statusCode,
             user: result,
